@@ -1,0 +1,1 @@
+export const BASE_URL = 'http://tcbds.xicp.io:8888/yuqing'

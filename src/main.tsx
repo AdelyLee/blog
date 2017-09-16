@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import routes from './router/router';
 import "antd/dist/antd.less"
-import "@/style/index.scss"
+import "@/style/common.scss"
 
 ReactDOM.render(
   <Router>
