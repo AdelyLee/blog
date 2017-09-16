@@ -1,6 +1,6 @@
-# STOCK ANALYSIS
+# BLOG
 
-> stock analysis
+> blog publish system
 
 ## Build Setup
 
