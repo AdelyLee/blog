@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Route, Switch, Link } from 'react-router-dom'
 import { RouteWithSubRoutes } from '../router/router'
-import Home from './home';
 import About from './about';
 import noMatch from '../view/noMatch';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
@@ -9,13 +8,6 @@ const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
 const routes = [
-  {
-    path: '/app/home',
-    name: '舆情概况',
-    icon: 'flag',
-    leaf: true,
-    component: Home
-  },
   {
     path: '/app/about',
     name: '关于',
@@ -109,7 +101,7 @@ export default class App extends React.Component<{}, {}> {
                   {routes.map((route, i) => (
                     <RouteWithSubRoutes key={i} {...route} />
                   ))}
-                  <Route exact path='/app' component={Home} />
+                  {/* <Route exact path='/app' component={Home} /> */}
                   <Route path='*' component={noMatch} />
                 </Switch>
               </Content>

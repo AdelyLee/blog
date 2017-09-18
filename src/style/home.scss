@@ -1,0 +1,29 @@
+#home {
+    text-align: left;
+    @mixin text-overflow {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .artile-box {
+        .title {
+            width: 100%;
+            display: inline-block;
+            font-size: 2em;
+            line-height: 2em;
+            cursor: pointer;
+            @include text-overflow;
+        }
+        .artile-content {
+            padding-right: 10px;
+            margin-bottom: 1em;
+            max-height: 8em;
+            font-size: 1.2em;
+            line-height: 1.2em;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
+        }
+    }
+}

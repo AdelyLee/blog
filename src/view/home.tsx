@@ -1,25 +1,47 @@
 import * as React from "react";
-import { Card } from 'antd';
+import { Card, Row, Col } from 'antd';
 import { getArticles } from '../service/articles'
+import '@/style/home.scss'
 const Title = () => <h1>文章列表</h1>;
-const Article = (article: any) => (
-  <Card style={{ width: 240 }} bodyStyle={{ padding: 0 }}>
-    <div className="custom-image">
-      <img alt="example" width="100%" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
-    </div>
-    <div className="custom-card">
-      <h3>Europe Street beat</h3>
-      <p>www.instagram.com</p>
-    </div>
-  </Card>
-)
+class Articles extends React.Component<any, any> {
+  showDetail = (event: any) => {
+    console.log("click detail!");
+  }
+  render() {
+    debugger
+    return (
+      <div>
+        {
+          this.props.articles.map((article: any) => {
+            <Card className="artile-box" key={article.id} style={{ width: '100%' }} bodyStyle={{ padding: 0 }}>
+              <Row>
+                <Col span={24}>
+                  <span className="title" onClick={this.showDetail}>
+                    {article.title}
+                  </span>
+                </Col>
+              </Row>
+              <Row>
+                <div className="artile-content">
+                  <p>{article.content}</p>
+                </div>
+              </Row>
+            </Card>
+          })
+        }
+      </div>
+    )
+  }
+}
 
 class Home extends React.Component<any, any> {
-  state = {
-    articles: []
+  constructor(props: any) {
+    super(props);
+    this.state = { articles: [] };
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    debugger
     let params = {
       date: {
         startDate: '2017-09-15',
@@ -33,6 +55,7 @@ class Home extends React.Component<any, any> {
       type: ['news']
     }
     getArticles(params).then(data => {
+      debugger
       let { content } = data
       this.setState({ articles: content })
     }).catch(error => {
@@ -41,14 +64,12 @@ class Home extends React.Component<any, any> {
   }
 
   render() {
-    let logo = require("@/assets/logo.svg");
     return (
       <div id="home">
-        <Title />
-        <img src={logo} style={{ width: 200 }} alt="" />
-        {this.state.articles.map((article, i) => (
-          <Article key={i} {...article} />
-        ))}
+        <Col span={18} offset={3}>
+          <Title />
+          <Articles articles={this.state.articles} />
+        </Col>
       </div>
     );
   }

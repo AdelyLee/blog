@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import App from '../view/app';
 import Login from '../view/login';
 import noMatch from '../view/noMatch';
+import Home from '../view/home';
 
 const routes = [
   {
@@ -15,7 +16,14 @@ const routes = [
     name: '分析系统',
     icon: 'flag',
     component: App,
-  }
+  },
+  {
+    path: '/home',
+    name: '舆情概况',
+    icon: 'flag',
+    leaf: true,
+    component: Home
+  },
 ];
 
 // wrap <Route> and use this everywhere instead, then when
@@ -33,7 +41,7 @@ const RouteConfig: any = (
       {routes.map((route, i) => (
         <RouteWithSubRoutes key={i} {...route} />
       ))}
-      <Route exact path='/' component={Login} />
+      <Route exact path='/' component={Home} />
       <Route path='*' component={noMatch} />
     </Switch>
   </div>
