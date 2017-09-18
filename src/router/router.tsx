@@ -4,6 +4,7 @@ import App from '../view/app';
 import Login from '../view/login';
 import noMatch from '../view/noMatch';
 import Home from '../view/home';
+import ArticleDetail from '../view/article-detail';
 
 const routes = [
   {
@@ -24,6 +25,13 @@ const routes = [
     leaf: true,
     component: Home
   },
+  {
+    path: '/detail',
+    name: '文章详情',
+    icon: 'flag',
+    leaf: true,
+    component: ArticleDetail
+  }
 ];
 
 // wrap <Route> and use this everywhere instead, then when

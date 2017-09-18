@@ -1,7 +1,7 @@
 import * as React from "react";
 const Title = () => <h1>Hello</h1>;
 
-class About extends React.Component<any, {}> {
+class ArticleDetail extends React.Component<any, {}> {
   render() {
     return (
       <div>
@@ -12,4 +12,4 @@ class About extends React.Component<any, {}> {
   }
 }
 
-export default About;
+export default ArticleDetail;

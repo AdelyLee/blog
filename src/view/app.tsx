@@ -26,10 +26,6 @@ export default class App extends React.Component<{}, {}> {
       collapsed: !this.state.collapsed,
     });
   }
-  redirectPage = () => {
-    debugger
-
-  }
   render() {
     return (
       <div className="layout">
